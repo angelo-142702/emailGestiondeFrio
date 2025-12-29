@@ -13,6 +13,14 @@ const corsOptions = {
     allwedHeaders: ['Content-Type','Authorization']
 };
 
+// O para rutas específicas:
+app.options('/api/email/send', (req, res) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.status(200).end();
+});
+
 app.use(cors(corsOptions));
 //Rate limiting
 app.use(express.json());  // Para parsear application/json
