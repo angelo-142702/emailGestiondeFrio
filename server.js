@@ -7,8 +7,10 @@ const emailRouter = require('./routes/email');
 const app = express();
 //Configuracion de cors
 const origin = process.env.ALLOWED_ORIGINS ;
+console.log(origin);
+
 const corsOptions = {
-    origin:origin,
+    origin:'*',
     methods: ['GET','POST'],
     allwedHeaders: ['Content-Type','Authorization']
 };
@@ -24,7 +26,7 @@ const limiter = rateLimit({
 });
 app.use('/api/', limiter);
 //Middleware
-app.use('/api/helath', (req, res) => {
+app.use('/', (req, res) => {
     res.json({
         status: 'ok',
         message: 'Servidor funcionando correctamente',
