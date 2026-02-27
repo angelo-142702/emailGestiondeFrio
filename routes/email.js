@@ -26,6 +26,8 @@ router.post('/send', async (req, res, next) => {
         error: 'Cuerpo de la solicitud vacío o no proporcionado'
       });
     }
+    console.log(req.body);
+    
         const{
             name,
             email,
